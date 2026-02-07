@@ -6,7 +6,6 @@ const navItems = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
 ];
 
 export const Navbar = () => {
@@ -24,26 +23,25 @@ export const Navbar = () => {
     return (
         <nav className={cn(
             "fixed w-full z-40 transition-all duration-300", 
-            isScrolled ? "py-2 bg-black/90 backdrop-blur-md shadow-lg" : "py-5"
+            isScrolled ? "py-3 bg-background/95 backdrop-blur-md shadow-lg" : "py-5"
         )}>
-            <div className="container flex items-center justify-between">
-                <a className="text-xl font-bold text-primary flex items-center" href="#hero">
-                    <span className="relative z-10">
-                        <span className="text-glow text-foreground">PatrickTech</span> Portfolio
-                    </span>
+            <div className="container flex items-center justify-between px-4 lg:px-8">
+                <a className="text-xl font-bold text-foreground flex items-center" href="#hero">
+                    John Patrick Yadao
                 </a>
 
                 {/* desktop nav */}
-                <div className="hidden md:flex gap-8">
+                <div className="hidden md:flex items-center gap-8">
                     {navItems.map((item, key) => (
                         <a 
                             key={key} 
                             href={item.href} 
-                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                            className="text-foreground/70 hover:text-foreground transition-colors duration-300 font-medium"
                         >
                             {item.name}
                         </a>
                     ))}
+                    
                 </div>
 
                 {/* mobile menu button */}
@@ -57,8 +55,7 @@ export const Navbar = () => {
             
                 {/* mobile nav */}
                 <div className={cn(
-                    "fixed inset-0 bg-black/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-
+                    "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
                     "transition-all duration-300 md:hidden",
                     isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 )}>
@@ -67,7 +64,7 @@ export const Navbar = () => {
                             <a 
                                 key={key} 
                                 href={item.href} 
-                                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                                className="text-foreground/70 hover:text-foreground transition-colors duration-300"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {item.name}
